@@ -62,7 +62,8 @@ To start the development server, run:
 
 This will start the app on http://localhost:3000.
 
-##Author
+## Author
+
 👤 **Yasindu Sanjeewa**
 
 -   Portfolio: [yasinduediriweera](https://yasinduediriweera.com)
