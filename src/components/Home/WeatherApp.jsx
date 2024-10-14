@@ -1,5 +1,4 @@
 import React from "react";
-import SearchBar from "./SearchBar.jsx";
 import WeatherCard from "./WeatherCard.jsx";
 import data from "../../utils/cities.json";
 
@@ -19,12 +18,9 @@ const WeatherApp = () => {
         </h2>
       </div>
 
-      <SearchBar />
-
       <WeatherCard cityIds={cities} />
     </div>
   );
 };
-
 
 export default WeatherApp;
