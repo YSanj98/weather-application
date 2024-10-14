@@ -21,6 +21,7 @@ weather-app/
 │   ├── App.test.js
 │   ├── components/
 │   │   └── Home/
+│   │       ├── OpenWeatherCard.jsx
 │   │       ├── SearchBar.jsx
 │   │       ├── WeatherApp.jsx
 │   │       ├── WeatherCard.jsx
