@@ -65,10 +65,14 @@ input[type="number"] {
   height: auto;
 }
 
+.open-weather-card {
+  width: 100%;
+  max-width: 700px;
+  height: auto;
+}
 
 .vertical-line {
-  border-left: 1px solid #ccc; 
-  height: auto; 
-  margin: 0 1rem; 
-
+  border-left: 1px solid #ccc;
+  height: auto;
+  margin: 0 1rem;
 }
