@@ -1,8 +1,9 @@
 import React from "react";
 import WeatherIcon from "./WeatherIcon";
 import { FiNavigation } from "react-icons/fi";
+import { IoCloseOutline } from "react-icons/io5";
 
-const WeatherCardItem = ({ data }) => {
+const WeatherCardItem = ({ data, onClick }) => {
   const {
     main: { temp, temp_min, temp_max, pressure, humidity },
     visibility,
@@ -38,16 +39,24 @@ const WeatherCardItem = ({ data }) => {
 
   return (
     <>
-      {/* Top Section*/}
       <div
-        className={`weather-card bg-card mx-auto p-4 sm:p-6 ${cardColor} rounded-t-lg shadow-lg text-white`}
+        onClick={onClick}
+        className={`weather-card bg-card mx-auto p-4 sm:p-6 ${cardColor} rounded-t-lg shadow-lg text-white cursor-pointer`}
       >
+        {/* Close Button */}
+        <div className="flex justify-end mb-2">
+          <button className="text-white text-xl">
+            <IoCloseOutline />
+          </button>
+        </div>
+
+        {/* Top Section*/}
         <div className="flex flex-col sm:flex-row justify-between items-center">
           <div>
             <h2 className="text-xl sm:text-3xl font-bold">
               {name}, {country}
             </h2>
-            <p className="text-sm sm:text-base ">
+            <p className="text-sm sm:text-base flex justify-center">
               {`${formatTime(new Date().getTime() / 1000)}`},{" "}
               {new Date().toLocaleDateString("en-US", {
                 month: "short",
@@ -60,21 +69,23 @@ const WeatherCardItem = ({ data }) => {
           </div>
         </div>
 
+        {/* Middle Section*/}
         <div className="flex flex-col sm:flex-row justify-center sm:justify-between mt-4 items-center">
           <p className="text-lg flex items-center gap-2">
             <WeatherIcon description={weather[0].main} />
             {weather[0].description}
           </p>
           <div className="text-center sm:text-left">
-            <p className="text-sm">Temp Min: {temp_min}°C</p>
-            <p className="text-sm">Temp Max: {temp_max}°C</p>
+            <p className="text-sm">Temp Min: {Math.round(temp_min)}°C</p>
+            <p className="text-sm">Temp Max: {Math.round(temp_max)}°C</p>
           </div>
         </div>
       </div>
 
       {/* Bottom Section*/}
       <div
-        className={`flex flex-col sm:flex-row justify-between weather-card mx-auto p-4 sm:p-6 bg-gray-700 rounded-b-lg shadow-lg text-white mb-10`}
+      onClick={onClick}
+        className={`flex flex-col sm:flex-row justify-between weather-card mx-auto p-4 sm:p-6 bg-gray-700 rounded-b-lg shadow-lg text-white mb-10 cursor-pointer`}
       >
         <div className="flex flex-col items-center justify-center">
           <p>Pressure: {pressure}hPa</p>
